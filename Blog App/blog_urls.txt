@@ -1,3 +1,0 @@
-https://academy-project-blogs.s3-eu-west-1.amazonaws.com/teaching_code.doc
-https://academy-project-blogs.s3-eu-west-1.amazonaws.com/IDC.md
-https://academy-project-blogs.s3-eu-west-1.amazonaws.com/milestones.txt

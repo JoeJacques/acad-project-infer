@@ -1,1 +1,0 @@
-This is my blog about programming in javascript which is now updated
