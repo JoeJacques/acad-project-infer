@@ -3,3 +3,4 @@ variable "num_subnets" {
   default = 2
   description = "number of private and public subnets to create"
 }
+
