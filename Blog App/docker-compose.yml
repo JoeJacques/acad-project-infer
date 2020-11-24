@@ -1,0 +1,23 @@
+
+version: '3.2'
+services:
+  # this is the web application we are going to test
+  express-app:
+    build: .
+    ports:
+      - 3000:3000
+
+  # Cypress container
+  cypress:
+    image: "cypress/included:5.0.0"
+    depends_on:
+      - express-app
+    environment:
+      # pass base url to test pointing at the web application
+      - CYPRESS_HOST=http://express-app:3000
+      - CYPRESS_RECORD_KEY=c275012c-874f-4d35-b94f-fc62dfbe5d6d
+    # share the current folder as volume to avoid copying
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
+    command: --record --key c275012c-874f-4d35-b94f-fc62dfbe5d6d

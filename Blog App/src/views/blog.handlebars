@@ -1,0 +1,16 @@
+<div class="container p-3 bg-light text-center">
+    <h1 id="blog-title" class="text-center pt-5 mb-5 text-justify">{{{ blog.Title }}}</h1>
+    <p class="text-justify">{{ blog.Body }}</p>
+
+    <div class="row">
+        <div class="col-4 text-right">
+            <a href="/" class="btn btn-secondary">Back to blog list</a>
+        </div>
+        <div class="col-4">
+            <a href="/update/{{{ blog.Title }}}" class="btn btn-primary">Edit blog</a>
+        </div>
+        <div class="col-4 text-left">
+            <a href="/delete/{{{ blog.Title }}}" class="btn btn-danger">Delete blog</a>
+        </div>
+    </div>
+</div>
