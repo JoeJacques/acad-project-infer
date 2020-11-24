@@ -1,1 +1,1 @@
-# acad-project-infer
+# BlogBoard
