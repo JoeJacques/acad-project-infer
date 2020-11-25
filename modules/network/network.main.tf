@@ -72,7 +72,7 @@ resource "aws_security_group" "sec_group" {
 
 # create sec group
 resource "aws_security_group" "sec_group_fargate" {
-  vpc_id =aws_vpc.main.id
+  vpc_id = aws_vpc.main.id
   
   ingress {
     from_port = 0
