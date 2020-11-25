@@ -1,4 +1,4 @@
-{
+[{
   "ipcMode": null,
   "executionRoleArn": "arn:aws:iam::603825719481:role/ecsTaskExecutionRole",
   "containerDefinitions": [
@@ -58,10 +58,9 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "512",
+  "memory": 512,
   "taskRoleArn": null,
   "compatibilities": [
-    "EC2",
     "FARGATE"
   ],
   "taskDefinitionArn": "arn:aws:ecs:eu-west-1:603825719481:task-definition/first-run-task-definition:4",
@@ -115,10 +114,10 @@
     "FARGATE"
   ],
   "networkMode": "awsvpc",
-  "cpu": "256",
+  "cpu": 256,
   "revision": 4,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
   "volumes": []
-}
+}]

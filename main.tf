@@ -21,5 +21,14 @@ module "network" {
 
 module "ecr" {
   source = "./modules/ecr"
-  
+  security_group_id = module.network.sec_group_id
+  public_subnet_id = module.network.subnet_id
+}
+
+output "sg_id" {
+  value = module.network.sec_group_id
+}
+
+output "subnet_id" {
+  value = module.network.subnet_id
 }
