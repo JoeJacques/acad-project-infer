@@ -54,7 +54,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "custom"
+      "name": "blog-prod"
     }
   ],
   "placementConstraints": [],
@@ -65,7 +65,7 @@
     "FARGATE"
   ],
   "taskDefinitionArn": "arn:aws:ecs:eu-west-1:603825719481:task-definition/first-run-task-definition:4",
-  "family": "first-run-task-definition",
+  "family": "blog_joe_ritesh",
   "requiresAttributes": [
     {
       "targetId": null,
