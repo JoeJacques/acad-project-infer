@@ -7,3 +7,6 @@ resource "aws_ecr_repository" "ecr_repo" {
   }
 }
 
+resource "aws_ecs_cluster" "blog-joe-ritesh" {
+  name = "blog-joe-ritesh"
+}
