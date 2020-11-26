@@ -10,3 +10,10 @@ output "vpc_id" {
 output "target_group" {
   value = module.application_load.target_group
 }
+output "ecs_cluster" {
+  value = module.ecr.ecs_cluster
+}
+
+output "ecs_service" {
+  value = module.ecr.ecs_service
+}

@@ -34,4 +34,10 @@ module "application_load" {
   security_groups = module.network.sec_group_id 
     
   }
+module "autoscale" {
+  source = "./modules/autoscale"
+  ecs_cluster = module.ecr.ecs_cluster
+  ecs_service = module.ecr.ecs_cluster
+  }
+  
 
