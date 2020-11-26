@@ -1,40 +1,8 @@
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
 jobs:
-
-  terraform:
-    name: 'Terraform'
-    runs-on: ubuntu-latest
-
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-    # Checkout the repository to the GitHub Actions runner
-    - name: Checkout
-      uses: actions/checkout@v2
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        cli_config_credentials_token: ${{ secrets.TERRAFORM_API }}
-
-    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-    - name: Terraform Init
-      run: terraform init
-    # Checks that all Terraform configuration files adhere to a canonical format
-  
-    # Generates an execution plan for Terraform
-    - name: Terraform Plan
-      run: terraform plan
-
-    - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve
-
-  deply-image:
+  deploy-image-dev:
     needs: terraform
     name: Upload to Amazon ECR 
     runs-on: ubuntu-latest
@@ -54,7 +22,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: acad-joe-ritesh-repo
-        IMAGE_TAG: blog-prod
+        IMAGE_TAG: blog-dev
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
