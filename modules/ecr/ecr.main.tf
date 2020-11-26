@@ -19,33 +19,27 @@ resource "aws_ecs_cluster" "blog_joe_ritesh" {
 
 # create a task definition
 resource "aws_ecs_task_definition" "blog_joe_ritesh" {
-  family                = "service"
+  family                = "blog_joe_ritesh"
   container_definitions = file("${path.root}/task_definition.json")
-
-  volume {
-    name      = "service-storage"
-    host_path = "/ecs/service-storage"
-  }
-
-  placement_constraints {
-    type       = "memberOf"
-    expression = "attribute:ecs.availability-zone in [eu-west-1]"
-  }
+  network_mode = "awsvpc"
+  requires_compatibilities = [ "FARGATE" ]
+  cpu = 512
+  memory = 1024
+  execution_role_arn = "arn:aws:iam::603825719481:role/ecsTaskExecutionRole"
 }
 
 # create a service
 resource "aws_ecs_service" "blog_joe_ritesh" {
   name = "blog-joe-ritesh"
   cluster = aws_ecs_cluster.blog_joe_ritesh.arn
+  launch_type = "FARGATE"
 
   task_definition = aws_ecs_task_definition.blog_joe_ritesh.arn
   desired_count   = 1
-  # iam_role        = aws_iam_role.foo.arn
-
-
+  
   network_configuration {
-    assign_public_ip = true
     security_groups = [var.security_group_id]
     subnets = var.public_subnet_id
+    assign_public_ip = true
   }
 }
