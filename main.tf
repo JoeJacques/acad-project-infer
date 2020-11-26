@@ -23,12 +23,15 @@ module "ecr" {
   source = "./modules/ecr"
   security_group_id = module.network.sec_group_id
   public_subnet_id = module.network.subnet_id
-}
+  target_group = module.application_load.target_group
+  vpc_id = module.network.vpc_id 
+  }
 
-output "sg_id" {
-  value = module.network.sec_group_id
-}
+module "application_load" {
+  source = "./modules/application_load"
+  subnets = module.network.subnet_id
+  vpc_id = module.network.vpc_id 
+  security_groups = module.network.sec_group_id 
+    
+  }
 
-output "subnet_id" {
-  value = module.network.subnet_id
-}

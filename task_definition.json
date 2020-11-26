@@ -5,7 +5,7 @@
   ],
   "inferenceAccelerators": [],
   
-          "name": "testing-tr",
+          "name": "blog_joe_ritesh",
           "image": "603825719481.dkr.ecr.eu-west-1.amazonaws.com/acad-joe-ritesh-repo:blog-prod",
           "memoryReservation": 128,
           "resourceRequirements": null,
