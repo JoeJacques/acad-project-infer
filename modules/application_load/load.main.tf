@@ -5,7 +5,7 @@ resource "aws_alb" "joe_ritesh_application_load_dev" {
   security_groups    = [var.security_groups]
 }
 resource "aws_lb_target_group" "joe_ritesh_tg_dev" {
-  name        = "acad-joe-ritesh-fargate-tg_dev"
+  name        = "acad-joe-ritesh-fargate-tg-dev"
   port        = 80
   protocol    = "HTTP"
   target_type = "ip"

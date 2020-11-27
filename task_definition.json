@@ -1,123 +1,36 @@
-[{
-  "ipcMode": null,
-  "executionRoleArn": "arn:aws:iam::603825719481:role/ecsTaskExecutionRole",
-  "containerDefinitions": [
-    {
-      "dnsSearchDomains": null,
-      "environmentFiles": null,
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "secretOptions": null,
-        "options": {
-          "awslogs-group": "/ecs/first-run-task-definition",
-          "awslogs-region": "eu-west-1",
-          "awslogs-stream-prefix": "ecs"
+[
+  {
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "inferenceAccelerators": [],
+    
+            "name": "blog_joe_ritesh_dev",
+            "image": "603825719481.dkr.ecr.eu-west-1.amazonaws.com/acad-joe-ritesh-repo_dev:blog-dev",
+            "memoryReservation": 128,
+            "resourceRequirements": null,
+            "essential": true,
+            "memory": 1024,
+            "cpu": 512,
+            "executionRoleArn": "arn:aws:iam::603825719481:role/ecsTaskExecutionRole",
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "protocol": "tcp"
+                }
+            ],
+            "environment": null,
+            "environmentFiles": [],
+            "secrets": null,
+            "mountPoints": null,
+            "volumesFrom": null,
+            "hostname": null,
+            "user": null,
+            "workingDirectory": null,
+            "extraHosts": null
         }
-      },
-      "entryPoint": [],
-      "portMappings": [
-        {
-          "hostPort": 3000,
-          "protocol": "tcp",
-          "containerPort": 3000
-        }
-      ],
-      "command": [],
-      "linuxParameters": null,
-      "cpu": 0,
-      "environment": [],
-      "resourceRequirements": null,
-      "ulimits": null,
-      "dnsServers": null,
-      "mountPoints": [],
-      "workingDirectory": null,
-      "secrets": null,
-      "dockerSecurityOptions": null,
-      "memory": null,
-      "memoryReservation": null,
-      "volumesFrom": [],
-      "stopTimeout": null,
-      "image": "603825719481.dkr.ecr.eu-west-1.amazonaws.com/acad-joe-ritesh-repo:blog-prod",
-      "startTimeout": null,
-      "firelensConfiguration": null,
-      "dependsOn": null,
-      "disableNetworking": null,
-      "interactive": null,
-      "healthCheck": null,
-      "essential": true,
-      "links": [],
-      "hostname": null,
-      "extraHosts": null,
-      "pseudoTerminal": null,
-      "user": null,
-      "readonlyRootFilesystem": null,
-      "dockerLabels": null,
-      "systemControls": null,
-      "privileged": null,
-      "name": "blog-prod"
-    }
-  ],
-  "placementConstraints": [],
-  "memory": 512,
-  "taskRoleArn": null,
-  "compatibilities": [
-    "FARGATE"
-  ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-1:603825719481:task-definition/first-run-task-definition:4",
-  "family": "blog_joe_ritesh",
-  "requiresAttributes": [
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.execution-role-awslogs"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.execution-role-ecr-pull"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.task-eni"
-    }
-  ],
-  "pidMode": null,
-  "requiresCompatibilities": [
-    "FARGATE"
-  ],
-  "networkMode": "awsvpc",
-  "cpu": 256,
-  "revision": 4,
-  "status": "ACTIVE",
-  "inferenceAccelerators": null,
-  "proxyConfiguration": null,
-  "volumes": []
-}]
+  ]
+  
+    
+  
+  

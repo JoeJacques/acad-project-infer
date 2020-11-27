@@ -10,9 +10,9 @@ resource "aws_appautoscaling_target" "acad_joe_ritesh_dev" {
 resource "aws_appautoscaling_policy" "memory_dev" {
   name               = "cb_scale_up_dev"
   policy_type        = "TargetTrackingScaling"
-  resource_id        = aws_appautoscaling_target.acad_joe_ritesh.resource_id
+  resource_id        = aws_appautoscaling_target.acad_joe_ritesh_dev.resource_id
   scalable_dimension = "ecs:service:DesiredCount"
-  service_namespace  = aws_appautoscaling_target.acad_joe_ritesh.service_namespace
+  service_namespace  = aws_appautoscaling_target.acad_joe_ritesh_dev.service_namespace
 
   target_tracking_scaling_policy_configuration {
     predefined_metric_specification {
@@ -24,9 +24,9 @@ resource "aws_appautoscaling_policy" "memory_dev" {
 resource "aws_appautoscaling_policy" "cpu_dev" {
   name               = "joe-ritesh-cpu_dev"
   policy_type        = "TargetTrackingScaling"
-  resource_id        = aws_appautoscaling_target.acad_joe_ritesh.resource_id
-  scalable_dimension = aws_appautoscaling_target.acad_joe_ritesh.scalable_dimension
-  service_namespace  = aws_appautoscaling_target.acad_joe_ritesh.service_namespace
+  resource_id        = aws_appautoscaling_target.acad_joe_ritesh_dev.resource_id
+  scalable_dimension = aws_appautoscaling_target.acad_joe_ritesh_dev.scalable_dimension
+  service_namespace  = aws_appautoscaling_target.acad_joe_ritesh_dev.service_namespace
 
   target_tracking_scaling_policy_configuration {
     predefined_metric_specification {

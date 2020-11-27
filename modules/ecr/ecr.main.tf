@@ -28,11 +28,11 @@ resource "aws_ecs_task_definition" "blog_joe_ritesh_dev" {
 
 # create a service
 resource "aws_ecs_service" "blog_joe_ritesh_dev" {
-  name        = "blog-joe-ritesh_dev"
-  cluster     = aws_ecs_cluster.blog_joe_ritesh.arn
+  name        = "blog_joe_ritesh_dev"
+  cluster     = aws_ecs_cluster.blog_joe_ritesh_dev.arn
   launch_type = "FARGATE"
 
-  task_definition = aws_ecs_task_definition.blog_joe_ritesh.arn
+  task_definition = aws_ecs_task_definition.blog_joe_ritesh_dev.arn
   desired_count   = 1
 
   network_configuration {
@@ -43,7 +43,7 @@ resource "aws_ecs_service" "blog_joe_ritesh_dev" {
 
   load_balancer {
     target_group_arn = var.target_group
-    container_name   = aws_ecs_task_definition.blog_joe_ritesh.family
+    container_name   = aws_ecs_task_definition.blog_joe_ritesh_dev.family
     container_port   = 3000
   }
 }

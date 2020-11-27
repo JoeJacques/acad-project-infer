@@ -33,7 +33,7 @@ resource "aws_subnet" "public_dev" {
 
 # create route table
 resource "aws_route_table" "route_table_dev" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.main_dev.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -49,7 +49,7 @@ resource "aws_route_table" "route_table_dev" {
 # create route table association
 resource "aws_route_table_association" "route_table_association_dev" {
   count          = 2
-  subnet_id      = "${element(aws_subnet.public.*.id, count.index)}"
+  subnet_id      = "${element(aws_subnet.public_dev.*.id, count.index)}"
   route_table_id = aws_route_table.route_table_dev.id
 }
 
